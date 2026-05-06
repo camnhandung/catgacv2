@@ -577,6 +577,17 @@ XÓA
                 alert('Lỗi reset mật khẩu');
             }
         }
+        
+    </script>
+    <script>
+
+if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register("/static/sw.js")
+    .then(() => console.log("SW OK"));
+
+}
+
     </script>
 </body>
 </html>
