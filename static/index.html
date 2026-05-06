@@ -583,11 +583,12 @@ XÓA
 
 if ("serviceWorker" in navigator) {
 
-    navigator.serviceWorker.register("/static/sw.js")
-    .then(() => console.log("SW OK"));
+    navigator.serviceWorker
+        .register("/static/sw.js")
+        .then(() => console.log("PWA READY"));
 
 }
 
-    </script>
+</script>
 </body>
 </html>
