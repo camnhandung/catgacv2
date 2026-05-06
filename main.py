@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from datetime import date
 import calendar
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from models import (
     engine,
