@@ -293,7 +293,7 @@ class="nav-btn w-full text-left p-3 text-gray-400 font-bold uppercase border-l-4
             document.getElementById('sidebar').classList.add('-translate-x-full');
             document.getElementById('overlay').classList.add('hidden');
             
-            const titles = {'matrix':'Phân Công Lực Lượng (CQTM)', 'units':'Đội Hình Đơn Vị', 'posts':'Mục Tiêu Bảo Vệ', 'reports':'Giám Sát Toàn Tuyến', 'incidents':'Nhật Ký Vi Phạm', 'unit-matrix':'Danh Sách Trực Gác', 'unit-roster':'Quân Số Đơn Vị'};
+            const titles = {'matrix':'HỆ THỐNG CẮT GÁC THÔNG MINH', 'units':'Đội Hình Đơn Vị', 'posts':'Mục Tiêu Bảo Vệ', 'reports':'Giám Sát Toàn Tuyến', 'incidents':'Nhật Ký Vi Phạm', 'unit-matrix':'Danh Sách Trực Gác', 'unit-roster':'Quân Số Đơn Vị'};
             document.getElementById('pageTitle').innerText = titles[tabId];
             if (tabId === 'incidents') loadIncidents();
         }
