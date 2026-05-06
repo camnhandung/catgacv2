@@ -8,12 +8,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/static/icon.png",
+      "src": "/static/icon.ico",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/static/icon.png",
+      "src": "/static/icon.ico",
       "sizes": "512x512",
       "type": "image/png"
     }
