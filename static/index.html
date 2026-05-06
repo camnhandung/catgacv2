@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="CQTM">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CỔNG TÁC CHIẾN - HỆ THỐNG CẮT GÁC</title>
+    <title>HỆ THỐNG CẮT GÁC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { theme: { extend: { colors: { 'mil-dark': '#0f1a11', 'mil-panel': '#1b2e1e', 'mil-green': '#285223', 'mil-accent': '#78ad4e' } } } }
@@ -245,7 +245,7 @@ class="nav-btn w-full text-left p-3 text-gray-400 font-bold uppercase border-l-4
         function setupWorkspace() {
             document.getElementById('loginScreen').classList.add('hidden');
             document.getElementById('mainApp').classList.remove('hidden');
-            document.getElementById('displayUser').innerText = (currentUser.role === 'admin' ? "BỘ CHỈ HUY" : "ĐƠN VỊ: " + currentUser.name);
+            document.getElementById('displayUser').innerText = (currentUser.role === 'admin' ? "CQTM" : "ĐƠN VỊ: " + currentUser.name);
 
             if (currentUser.role === 'admin') {
                 document.getElementById('nav-admin').classList.remove('hidden');
