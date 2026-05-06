@@ -18,7 +18,7 @@ from models import (
     ShiftAssignment,
     IncidentReport
 )
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
 app = FastAPI(title="Hệ thống Điều hành Cắt gác CQTM", version="3.1")
 
 app.add_middleware(
