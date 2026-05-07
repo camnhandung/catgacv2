@@ -435,3 +435,8 @@ def get_incidents(session: Session = Depends(get_session)):
         })
 
     return results
+@app.get("/ping")
+def ping():
+    return {
+        "status": "alive"
+    }
