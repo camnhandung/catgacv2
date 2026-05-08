@@ -19,6 +19,14 @@ from models import (
     ShiftAssignment,
     IncidentReport
 )
+from datetime import datetime
+import pytz
+
+# Lấy giờ hiện tại theo múi giờ Việt Nam
+vn_tz = pytz.timezone('Asia/Ho_Chi_Minh')
+vancouver_now = datetime.now(vn_tz)
+
+# Gửi biến này lên Supabase thay vì để Database tự tạo timestamp
 
 app = FastAPI(title="Hệ thống Điều hành Cắt gác CQTM", version="3.1")
 app.mount("/static", StaticFiles(directory="static"), name="static")
