@@ -397,37 +397,94 @@ def report_incident(
 # ==========================================
 
 @app.get("/api/incidents")
-def get_incidents(session: Session = Depends(get_session)):
+def get_incidents(
+    month: int | None = None,
+    year: int | None = None,
+    session: Session = Depends(get_session)
+):
 
-    reports = session.exec(
+    incidents = session.exec(
         select(IncidentReport)
         .order_by(IncidentReport.created_at.desc())
     ).all()
 
-    results = []
+    result = []
 
-    for r in reports:
+    for item in incidents:
 
-        shift = session.get(MasterShift, r.shift_id)
+        shift = session.get(
+            MasterShift,
+            item.shift_id
+        )
 
-        post_name = "Không rõ"
+        if not shift:
+            continue
 
-        if shift:
-            post = session.get(GuardPost, shift.post_id)
-            if post:
-                post_name = post.name
+        post = session.get(
+            GuardPost,
+            shift.post_id
+        )
 
-        results.append({
-            "id": r.id,
-            "type": r.report_type,
-            "reporter": r.reporter_name,
-            "reason": r.reason,
-            "created_at": r.created_at.strftime("%d/%m/%Y %H:%M"),
-            "post_name": post_name,
-            "shift_time": shift.shift_time if shift else "?"
+        shift_times = [
+            "00.00-02.00",
+            "02.00-04.00",
+            "04.00-06.00",
+            "06.00-08.00",
+            "08.00-10.00",
+            "10.00-12.00",
+            "12.00-14.00",
+            "14.00-16.00",
+            "16.00-18.00",
+            "18.00-20.00",
+            "20.00-22.00",
+            "22.00-00.00"
+        ]
+
+        report_shift = shift.shift_time
+
+        violation_shift = ""
+
+        try:
+
+            idx = shift_times.index(report_shift)
+
+            if idx > 0:
+                violation_shift = shift_times[idx - 1]
+
+        except:
+            pass
+
+        if month and item.created_at.month != month:
+            continue
+
+        if year and item.created_at.year != year:
+            continue
+
+        result.append({
+
+            "created_at":
+                item.created_at.strftime("%d/%m/%Y %H:%M"),
+
+            "type":
+                item.report_type,
+
+            "post_name":
+                post.name if post else "",
+
+            "report_shift":
+                report_shift,
+
+            "violation_shift":
+                violation_shift,
+
+            "reporter":
+                item.reporter_name,
+
+            "reason":
+                item.reason
         })
 
-    return results
+    return result
 @app.get("/ping")
 def ping():
     return {
