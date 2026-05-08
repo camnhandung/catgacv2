@@ -334,13 +334,6 @@ def get_my_shifts(officer_id: int, month: int, year: int, session: Session = Dep
         raise HTTPException(status_code=500, detail="Lỗi máy chủ nghiêm trọng")
         
 # --- API BÁO CÁO VI PHẠM (MUỘN/BỎ GÁC) ---
-@app.post("/api/report-incident")
-def report_incident(data: dict):
-    # Log này sẽ hiện tại Terminal của Chỉ huy
-    print(f"⚠️ BÁO CÁO VI PHẠM: {data['type'].upper()}")
-    print(f"Người báo cáo: {data['reporter']}")
-    print(f"Ca gác ID: {data['shift_id']} | Nội dung: {data['reason']}")
-    return {"status": "success", "message": "Báo cáo đã được gửi tới CQTM"}
 # ==========================================
 # ADMIN RESET MẬT KHẨU
 # ==========================================
