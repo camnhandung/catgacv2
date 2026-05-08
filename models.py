@@ -65,7 +65,7 @@ class IncidentReport(SQLModel, table=True):
 # =========================
 # KẾT NỐI SUPABASE
 # =========================
-supabase_url = "postgresql://postgres.gyluylxwghtkfdwcqeua:Camnhandung1@aws-1-ap-northeast-1.pooler.supabase.com:6543/postgres"
+supabase_url = "DATABASE_URL"
 
 engine = create_engine(
     supabase_url,
