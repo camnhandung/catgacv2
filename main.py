@@ -19,7 +19,6 @@ from models import (
     ShiftAssignment,
     IncidentReport
 )
-from datetime import datetime
 import pytz
 
 # Lấy giờ hiện tại theo múi giờ Việt Nam
