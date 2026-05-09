@@ -1,4 +1,4 @@
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from sqlalchemy import func
 from typing import Optional, List
 from fastapi import FastAPI, Depends, HTTPException, Request
