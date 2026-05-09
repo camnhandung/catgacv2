@@ -1,5 +1,5 @@
 from typing import Optional
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from sqlmodel import Field, SQLModel, create_engine
 
 # =========================
