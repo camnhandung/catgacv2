@@ -1,5 +1,5 @@
 from typing import Optional
-from datetime import datetime, date, timezone
+from datetime import datetime, date
 from sqlmodel import Field, SQLModel, create_engine
 import pytz
 
@@ -66,7 +66,7 @@ class IncidentReport(SQLModel, table=True):
 
 
 
-created_at: datetime = Field(
+    created_at: datetime = Field(
     default_factory=lambda: datetime.now(VN_TZ)
 )
 # =========================
