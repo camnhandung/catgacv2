@@ -400,6 +400,21 @@ def report_incident(
     return {
         "message": "Đã gửi báo cáo vi phạm"
     }
+@app.delete("/api/incidents/{incident_id}")
+def delete_incident(incident_id: int):
+
+    conn = get_db()
+    cur = conn.cursor()
+
+    cur.execute(
+        "DELETE FROM incidents WHERE id=%s",
+        (incident_id,)
+    )
+
+    conn.commit()
+
+    return {"success": True}
+
 # ==========================================
 # ADMIN XEM TOÀN BỘ VI PHẠM
 # ==========================================
