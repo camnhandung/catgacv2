@@ -1,6 +1,9 @@
 from typing import Optional
 from datetime import datetime, date, timezone
 from sqlmodel import Field, SQLModel, create_engine
+import pytz
+
+VN_TZ = pytz.timezone("Asia/Ho_Chi_Minh")
 
 # =========================
 # 1. ĐƠN VỊ
@@ -62,9 +65,6 @@ class IncidentReport(SQLModel, table=True):
     reason: str = ""
 
 
-    import pytz
-
-VN_TZ = pytz.timezone("Asia/Ho_Chi_Minh")
 
 created_at: datetime = Field(
     default_factory=lambda: datetime.now(VN_TZ)
