@@ -61,7 +61,6 @@ class IncidentReport(SQLModel, table=True):
     reporter_name: str
     reason: str = ""
 
-    from datetime import timezone
 
     created_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc)
