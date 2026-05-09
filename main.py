@@ -393,7 +393,7 @@ def report_incident(
         report_type=data.type,
         reporter_name=data.reporter,
         reason=data.reason,
-        created_at=datetime.now(vn_tz)
+        created_at=datetime.now(VN_TZ)
     )
 
     session.add(report)
