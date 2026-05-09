@@ -62,9 +62,13 @@ class IncidentReport(SQLModel, table=True):
     reason: str = ""
 
 
-    created_at: datetime = Field(
-        default_factory=lambda: datetime.now(timezone.utc)
-    )
+    import pytz
+
+VN_TZ = pytz.timezone("Asia/Ho_Chi_Minh")
+
+created_at: datetime = Field(
+    default_factory=lambda: datetime.now(VN_TZ)
+)
 # =========================
 # KẾT NỐI SUPABASE
 # =========================
