@@ -414,6 +414,10 @@ def delete_incident(
 
     return {"success": True}
 
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 # ==========================================
 # ADMIN XEM TOÀN BỘ VI PHẠM
 # ==========================================
